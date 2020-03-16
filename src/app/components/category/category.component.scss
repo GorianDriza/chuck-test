@@ -1,0 +1,34 @@
+h2 {
+  font-size: 20px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.42;
+  letter-spacing: normal;
+  color: #2c3550;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #949bbf;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+mat-list {
+  padding: 0;
+  mat-list-item {
+    text-transform: capitalize;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    &.active {
+      border-radius: 4px;
+      background-color: #4073ff;
+      color: #fff;
+    }
+  }
+}

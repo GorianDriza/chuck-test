@@ -1,0 +1,36 @@
+.fact-list {
+  text-align: center;
+  margin-top: 30px;
+  .no-cat {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 40px 24px;
+    max-width: 340px;
+    margin: 0 auto;
+    .icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 100%;
+      background-color: #f5f7ff;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      mat-icon {
+        font-size: 30px;
+        width: 32px;
+        height: 32px;
+        color: #6c7aa8;
+      }
+    }
+    p{
+      font-size: 18px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: #6c7aa8;
+    }
+  }
+}

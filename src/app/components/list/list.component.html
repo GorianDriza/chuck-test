@@ -1,1 +1,15 @@
-<p>list works!</p>
+<div class="fact-list">
+  <ng-container *ngIf="selectedCat; else noSelectedCat">
+
+  </ng-container>
+</div>
+
+
+<ng-template #noSelectedCat>
+  <div class="no-cat">
+    <div class="icon">
+      <mat-icon>hourglass_empty</mat-icon>
+    </div>
+    <p>Please select one category to see facts!</p>
+  </div>
+</ng-template>

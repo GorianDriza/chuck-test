@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CategoryService} from '../../shared/services/category.service';
-import {NgRedux, select} from '@angular-redux/store';
+import {NgRedux} from '@angular-redux/store';
 
 @Component({
   selector: 'app-category',
@@ -8,7 +8,7 @@ import {NgRedux, select} from '@angular-redux/store';
   styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent implements OnInit {
-  @select('stateProp') stateProp$;
+  categories = [];
 
   constructor(
     private categoryService: CategoryService,
@@ -19,7 +19,7 @@ export class CategoryComponent implements OnInit {
 
   ngOnInit() {
     const categoryList = this.ngRedux.getState();
-    console.log(categoryList);
+    if (categoryList.category) { this.categories = categoryList.category; }
   }
 
 

@@ -1,0 +1,14 @@
+.container {
+  min-height: calc(100vh - 64px);
+  background-color: #f5f7ff;
+  .sidenav {
+    padding: 0 16px;
+    min-width: 200px;
+    min-height: calc(100vh - 64px);
+  }
+  mat-drawer-content {
+    min-height: calc(100vh - 64px);
+    app-list {
+    }
+  }
+}

@@ -1,0 +1,9 @@
+<h2 routerLink="/home">Categories</h2>
+
+<mat-list role="list">
+  <mat-list-item role="listitem" *ngFor="let category of categories" routerLink="/category/{{category}}"
+                 routerLinkActive="active">{{category}}
+  </mat-list-item>
+</mat-list>
+
+

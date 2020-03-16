@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  host: 'matchilling-chuck-norris-jokes-v1.p.rapidapi.com',
+  url: 'https://matchilling-chuck-norris-jokes-v1.p.rapidapi.com',
+  key: '53a61af534mshea943f753441ac9p1a9f6ejsnd6468530352c'
 };
 
 /*

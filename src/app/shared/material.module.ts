@@ -1,6 +1,4 @@
-import { ScrollDispatchModule } from '@angular/cdk/scrolling';
-import { NgModule } from '@angular/core';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import {NgModule} from '@angular/core';
 
 import {
   MatButtonModule,
@@ -49,8 +47,6 @@ const classesToUse = [
   MatTabsModule,
   MatSelectModule,
   MatProgressSpinnerModule,
-  ScrollDispatchModule,
-  InfiniteScrollModule,
   MatStepperModule
 ];
 
@@ -59,4 +55,5 @@ const classesToUse = [
   declarations: [],
   exports: classesToUse
 })
-export class MaterialModule {}
+export class MaterialModule {
+}

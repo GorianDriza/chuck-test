@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {take} from 'rxjs/operators';
 import {ListFactService} from '../../shared/services/list-fact.service';
 import {NgRedux} from '@angular-redux/store';
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-list',
@@ -10,7 +10,9 @@ import {NgRedux} from '@angular-redux/store';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  selectedCat: boolean;
+  fetchedFacts = [];
+  favoriteFacts = [];
+  test: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,8 +25,21 @@ export class ListComponent implements OnInit {
   }
 
   ngOnInit() {
-    const factList = this.ngRedux.getState();
-    console.log(factList);
+    this.ngRedux.subscribe(() => {
+      const factList = this.ngRedux.getState();
+      this.fetchedFacts = factList.facts;
+    });
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex);
+    }
   }
 
 }

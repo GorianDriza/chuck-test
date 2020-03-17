@@ -6,7 +6,7 @@ const initState = [];
 const factsReducer = (state = initState, action) => {
   switch (action.type) {
     case GET_FACTS:
-      return Object.assign(state, state.concat(action.facts.result));
+      return action.facts.result;
     case GET_FACTS_ERROR:
       break;
     default:

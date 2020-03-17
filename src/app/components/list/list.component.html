@@ -1,5 +1,42 @@
 <div class="fact-list">
-  <ng-container *ngIf="selectedCat; else noSelectedCat">
+  <ng-container *ngIf="fetchedFacts.length > 0; else noSelectedCat">
+
+    <div class="list-container">
+      <div class="list-block">
+        <h2>Facts</h2>
+
+        <div
+          cdkDropList
+          #fetchedFactsList="cdkDropList"
+          [cdkDropListData]="fetchedFacts"
+          [cdkDropListConnectedTo]="[favoriteFactsList]"
+          class="list"
+          (cdkDropListDropped)="drop($event)">
+          <div class="box" *ngFor="let fact of fetchedFacts" cdkDrag>
+            <img src="{{fact.icon_url}}" alt="{{fact.icon_url}}">
+            {{fact.value}}
+          </div>
+        </div>
+      </div>
+
+      <div class="list-block">
+        <h2>Favorite Facts</h2>
+
+        <div
+          cdkDropList
+          #favoriteFactsList="cdkDropList"
+          [cdkDropListData]="favoriteFacts"
+          [cdkDropListConnectedTo]="[fetchedFactsList]"
+          class="list"
+          (cdkDropListDropped)="drop($event)">
+          <div class="box" *ngFor="let fact of favoriteFacts" cdkDrag>
+            <img src="{{fact.icon_url}}" alt="{{fact.icon_url}}">
+            {{fact.value}}
+          </div>
+        </div>
+      </div>
+
+    </div>
 
   </ng-container>
 </div>

@@ -24,6 +24,7 @@ import {
   MatToolbarModule,
   MatTreeModule
 } from '@angular/material';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 const classesToUse = [
   MatProgressBarModule,
@@ -47,7 +48,8 @@ const classesToUse = [
   MatTabsModule,
   MatSelectModule,
   MatProgressSpinnerModule,
-  MatStepperModule
+  MatStepperModule,
+  DragDropModule
 ];
 
 @NgModule({

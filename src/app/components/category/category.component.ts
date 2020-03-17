@@ -18,8 +18,10 @@ export class CategoryComponent implements OnInit {
   }
 
   ngOnInit() {
-    const categoryList = this.ngRedux.getState();
-    if (categoryList.category) { this.categories = categoryList.category; }
+    this.ngRedux.subscribe(() => {
+      const categoryList = this.ngRedux.getState();
+      if (categoryList.category) { this.categories = categoryList.category; }
+    });
   }
 
 

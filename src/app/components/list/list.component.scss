@@ -64,6 +64,24 @@
         cursor: move;
         background: white;
         font-size: 14px;
+        &.not-draged {
+          cursor: default;
+          -webkit-touch-callout: none; /* iOS Safari */
+          -webkit-user-select: none; /* Safari */
+          -khtml-user-select: none; /* Konqueror HTML */
+          -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none;
+        }
+        .fact-value {
+          padding: 0 15px;
+          display: inline-block;
+          width: 100%;
+          text-align: left;
+        }
+        button {
+          box-shadow: none;
+        }
       }
     }
   }
@@ -93,3 +111,13 @@
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
+.breadcrumb {
+  text-align: left;
+  padding-left: 20px;
+  p {
+    span {
+      color: #4073ff;
+      text-decoration: underline;
+    }
+  }
+}

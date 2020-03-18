@@ -1,15 +1,72 @@
 <div class="fact-list">
-  <ng-container *ngIf="selectedCat; else noSelectedCat">
+
+  <ng-container *ngIf="param.name; else noSelectedCat">
+    <div class="breadcrumb">
+      <p>Home > Category > <span>{{param.name}}</span></p>
+    </div>
+
+    <div class="list-container">
+      <div class="list-block">
+        <h2>Facts</h2>
+
+        <div
+          *ngIf="fetchedFacts.length > 0; else noFacts"
+          cdkDropList
+          #fetchedFactsList="cdkDropList"
+          [cdkDropListData]="fetchedFacts"
+          [cdkDropListConnectedTo]="[favoriteFactsList]"
+          class="list"
+          (cdkDropListDropped)="drop($event)">
+          <div class="box" *ngFor="let fact of fetchedFacts" cdkDrag>
+            <img src="{{fact.icon_url}}" alt="{{fact.icon_url}}">
+            <span class="fact-value">{{fact.value}}</span>
+            <button mat-raised-button (click)="addToFavorite(fact)"><mat-icon>add</mat-icon></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-block">
+        <h2>Favorite Facts</h2>
+
+        <div
+          cdkDropList
+          #favoriteFactsList="cdkDropList"
+          [cdkDropListData]="favoriteFacts"
+          [cdkDropListConnectedTo]="[fetchedFactsList]"
+          class="list"
+          (cdkDropListDropped)="drop($event)">
+          <div class="box not-draged" *ngFor="let fact of favoriteFacts">
+            <img src="{{fact.icon_url}}" alt="{{fact.icon_url}}">
+            <span class="fact-value">{{fact.value}}</span>
+            <button mat-raised-button (click)="removeFromArray(fact)"><mat-icon>close</mat-icon></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
 
   </ng-container>
 </div>
 
 
 <ng-template #noSelectedCat>
+  <div class="breadcrumb">
+    <p>Home</p>
+  </div>
   <div class="no-cat">
     <div class="icon">
       <mat-icon>hourglass_empty</mat-icon>
     </div>
     <p>Please select one category to see facts!</p>
+  </div>
+</ng-template>
+
+<ng-template #noFacts>
+  <div class="no-cat">
+    <div class="icon">
+      <mat-icon>hourglass_empty</mat-icon>
+    </div>
+    <p>This Category doesn't have facts.<br>
+      Please select another category to see facts!</p>
   </div>
 </ng-template>

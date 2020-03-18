@@ -6,7 +6,7 @@ const initState = [];
 const categoryReducer = (state = initState, action) => {
   switch (action.type) {
     case GET_CATEGORIES:
-      return Object.assign(state, state.concat(action.category));
+      return action.category;
     case GET_CATEGORIES_ERROR:
       break;
     default:
